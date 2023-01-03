@@ -1,0 +1,26 @@
+red1-A0
+green1-A1
+yellow1-A2
+
+
+red2-A8
+green2-A9
+yellow2-A10
+
+case1: first 10 seconds
+on: red1,green2
+off: green1,yellow1,red2,yellow2
+
+
+case2: next 5 seconds
+on: red1,yellow2
+off: green1,yellow1,red2,green2
+
+
+case3: next 10 seconds
+on: red2,green1
+off: green2,yellow2,red1,yellow1
+
+case4: next 5 seconds
+on: red2,yellow1
+off: green2,yellow2,red1,green1

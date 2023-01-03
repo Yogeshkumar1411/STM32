@@ -1,0 +1,114 @@
+#include<stm32f10x.h>
+void delay(unsigned int ms)
+{
+	while(ms--);
+}
+char seg[20]={0X3F,0X06,0X5B,0X4F,0X66,0X6D,0X7D,0X07,0X7F,0X6F};
+int main()
+{
+	RCC->APB2ENR=1<<2;
+	GPIOA->CRL=0X22222222;
+	GPIOA->CRH=0X08882222;
+	while(1)
+	{
+		GPIOA->IDR=1<<8;
+		GPIOA->BRR=1<<9|1<<10|1<<11;
+		if(GPIOA->IDR&1<<12)
+		{
+			GPIOA->ODR|=seg[1];
+			delay(65000);
+			GPIOA->BRR|=seg[1];
+			delay(65000);
+		}
+		if(GPIOA->IDR&1<<13)
+		{
+			GPIOA->ODR|=seg[2];
+			delay(65000);
+			GPIOA->BRR|=seg[2];
+			delay(65000);
+		}
+		if(GPIOA->IDR&1<<14)
+		{
+			GPIOA->ODR|=seg[3];
+			delay(65000);
+			GPIOA->BRR|=seg[3];
+			delay(65000);
+		}
+		
+		
+		
+		GPIOA->IDR=1<<9;
+		GPIOA->BRR=1<<8|1<<10|1<<11;
+		if(GPIOA->IDR&1<<12)
+		{
+			GPIOA->ODR|=seg[4];
+			delay(65000);
+			GPIOA->BRR|=seg[4];
+			delay(65000);
+		}
+		if(GPIOA->IDR&1<<13)
+		{
+			GPIOA->ODR|=seg[5];
+			delay(65000);
+			GPIOA->BRR|=seg[5];
+			delay(65000);
+		}
+		if(GPIOA->IDR&1<<14)
+		{
+			GPIOA->ODR|=seg[6];
+			delay(65000);
+			GPIOA->BRR|=seg[6];
+			delay(65000);
+		}
+			
+		
+		GPIOA->IDR=1<<10;
+		GPIOA->BRR=1<<9|1<<8|1<<11;
+		if(GPIOA->IDR&1<<12)
+		{
+			GPIOA->ODR|=seg[7];
+			delay(65000);
+			GPIOA->BRR|=seg[7];
+			delay(65000);
+		}
+		if(GPIOA->IDR&1<<13)
+		{
+			GPIOA->ODR|=seg[8];
+			delay(65000);
+			GPIOA->BRR|=seg[8];
+			delay(65000);
+		}
+		if(GPIOA->IDR&1<<14)
+		{
+			GPIOA->ODR|=seg[9];
+			delay(65000);
+			GPIOA->BRR|=seg[9];
+			delay(65000);
+		}
+		
+		
+		GPIOA->IDR=1<<11;
+		GPIOA->BRR=1<<9|1<<10|1<<8;
+		/*if(GPIOA->IDR&1<<12)
+		{
+			GPIOA->ODR|=seg[1];
+			delay(65000);
+			GPIOA->BRR|=seg[1];
+			delay(65000);
+		}*/
+		if(GPIOA->IDR&1<<13)
+		{
+			GPIOA->ODR|=seg[0];
+			delay(65000);
+			GPIOA->BRR|=seg[0];
+			delay(65000);
+		}
+		/*if(GPIOA->IDR&1<<14)
+		{
+			GPIOA->ODR|=seg[3];
+			delay(65000);
+			GPIOA->BRR|=seg[3];
+			delay(65000);
+		}*/
+	}
+}

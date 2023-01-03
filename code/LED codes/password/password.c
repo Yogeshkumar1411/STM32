@@ -1,0 +1,36 @@
+#include<stm32f10x.h>
+int main()
+{
+	int count=0;
+	RCC->APB2ENR=1<<2|1<<3;
+	GPIOA->CRL=0X00088888;
+	GPIOB->CRL=0X00000002;
+	while(1)
+	{
+		if((GPIOA->IDR&1<<0)&&(count==0))
+		{
+			count=1;
+		}
+		if((GPIOA->IDR&1<<2)&&(count==1))
+		{
+			count=2;
+		}
+		if((GPIOA->IDR&1<<1)&&(count==2))
+		{
+			count=3;
+		}
+		if((GPIOA->IDR&1<<3)&&(count==3))
+		{
+			count=4;
+		}
+		if((GPIOA->IDR&1<<4)&&(count==4))
+		{
+			GPIOB->ODR|=1<<0;
+		}
+		if(GPIOA->IDR&1<<5)
+		{
+			GPIOB->BRR|=1<<0;
+			count=0;
+		}
+	}
+}

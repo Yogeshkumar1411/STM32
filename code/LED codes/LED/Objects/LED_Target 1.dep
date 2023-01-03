@@ -1,0 +1,4 @@
+Dependencies for Project 'LED', Target 'Target 1': (DO NOT MODIFY !)
+CompilerVersion: 5060960::V5.06 update 7 (build 960)::.\ARMCC
+F (.\main.c)(0x00000000)(-c --cpu Cortex-M3 -D__EVAL --li -g -O0 --apcs=interwork --split_sections-IC:\Users\user\AppData\Local\Arm\Packs\ARM\CMSIS\5.8.0\Device\ARM\ARMCM3\Include-D__UVISION_VERSION="536" -DARMCM3-o .\objects\main.o --omf_browse .\objects\main.crf --depend .\objects\main.d)
+F (.\led.c)(0x628F0CB6)(-c --cpu Cortex-M3 -D__EVAL --li -g -O0 --apcs=interwork --split_sections-IC:\Users\user\AppData\Local\Arm\Packs\ARM\CMSIS\5.8.0\Device\ARM\ARMCM3\Include-D__UVISION_VERSION="536" -DARMCM3-o .\objects\led.o --omf_browse .\objects\led.crf --depend .\objects\led.d)
